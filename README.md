@@ -25,22 +25,16 @@ We should be able to access it in the browser <br/>
 docker run -it -p 80:80 nginx
 ```
 
-In the video, we create a DNS record and point it to the IP of our server <br/>
-
 ## Certbot
 
 The [docs](https://certbot.eff.org/)
 
-To build certbot, i simply change directory and build my certbot container <br/>
-
 ```
-cd .\security\letsencrypt\introduction\
-
 docker build . -t certbot
 
-docker run -it --rm --name certbot `
--v ${PWD}:/letsencrypt `
--v ${PWD}/certs:/etc/letsencrypt `
+docker run -it --rm --name certbot \
+-v ${PWD}:/letsencrypt \
+-v ${PWD}/certs:/etc/letsencrypt \
 certbot bash
 
 ```
